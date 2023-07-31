@@ -10,3 +10,4 @@
 
 ## Regularization
 ### To prevent overfitting and improve generalization, regularization techniques like L1 and L2 regularization can be added to the cost function. These techniques penalize large model parameters and encourage simpler models.
+![Alt Text](https://raw.githubusercontent.com/devatroneoptimus/linear-regression-/main/results%20read.png)
