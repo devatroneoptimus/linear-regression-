@@ -1,0 +1,66 @@
+import numpy as np
+def cost_func(x,y,w,b):
+  m=x.shape[0]
+  cost=0
+
+  for i in range(m):
+    f_wb=w*x[i]+b
+    cost+=(f_wb-y[i])**2
+    t=cost/(2*m)
+
+
+
+  return t
+
+x=np.array([6.1101, 5.5277, 8.5186, 7.0032 ,5.8598,4,10,13,4.5,6.7,2.3,5.8,4.7])
+y=np.array([17.592  , 9.1302 ,13.662  ,11.854  , 6.8233,5,7,12,3.6,4.7,8.6,9.5,5.7])
+
+w=2
+b=1
+cos=cost_func(x,y,w,b)
+print(cos) 
+def grad_func(x,y,w,b):
+  m=x.shape[0]
+  cost=0
+
+  for i in range(m):
+    f_wb=w*x[i]+b
+    dj_w=0
+    dj_b=0
+    dj_w += (f_wb-y[i])*x[i]
+    dj_b += f_wb-y[i]
+    dj_w/=m
+    dj_b/=m
+
+
+
+  return dj_w,dj_b
+my_list=[]
+my_list2=[]
+alpha=0.005
+dj_w,dj_b=cos1
+
+for i in range(0,50):
+    w1=w-alpha*dj_w
+    b1=b-alpha*dj_b
+    w=w1
+    b=b1
+    my_list.append(w)
+    my_list2.append(b)
+
+
+print(my_list )
+print(my_list2)
+print(w)
+print(b)
+import matplotlib.pyplot as plt
+m = x.shape[0]
+predicted = np.zeros(m)
+
+for i in range(m):
+    predicted[i] = w * x[i] + b
+plt.plot(x,predicted,c="r")
+
+plt.scatter(x,y,marker="x")
+
+plt.show()
